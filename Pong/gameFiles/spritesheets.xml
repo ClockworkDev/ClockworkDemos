@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
         <spritesheets>
-  <spritesheet name="bar" src="images/white.png">
+  <spritesheet name="paddle" src="images/white.png">
 
     <states>
       <state name="idle">
@@ -13,17 +13,17 @@
 
     <layers>
       <layer name="idle" x="-2" y="-10">
-        <frame name="bar"></frame>
+        <frame name="paddle"></frame>
       </layer>   
       <layer name="lost" x="-2" y="-10">
-        <frame name="bar"></frame>
-        <frame name="smallBar"></frame>
+        <frame name="paddle"></frame>
+        <frame name="smallPaddle"></frame>
       </layer>   
     </layers>
 
     <frames>
-      <frame name="bar" x="0" y="0" w="5" h="20" t="200"></frame>
-      <frame name="smallBar" x="0" y="0" w="1" h="20" t="200"></frame>
+      <frame name="paddle" x="0" y="0" w="5" h="20" t="200"></frame>
+      <frame name="smallPaddle" x="0" y="0" w="1" h="20" t="200"></frame>
     </frames>
 
   </spritesheet>
@@ -64,7 +64,7 @@
     </layers>
 
     <frames>
-      <frame name="score" x="0" y="0" code="context.beginPath();context.fillStyle = '#FFF';context.font = '20pt Courier';context.textAlign = 'center';context.fillText(vars['$player']+' / '+vars['$AI'],x,y);" t="0"></frame>
+      <frame name="score" x="0" y="0" code="context.beginPath(); context.fillStyle='#FFF'; context.font='20pt Courier'; context.textAlign='center'; context.fillText(vars['$player']+' / '+vars['$AI'],x,y);" t="0"></frame>
     </frames>
 
   </spritesheet>
