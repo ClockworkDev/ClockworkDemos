@@ -1,0 +1,31 @@
+{
+    "name": "Pong",
+    "scope": "gameFiles",
+    "components": [
+        "components.js"
+    ],
+    "levels": [
+        "levels.xml"
+    ],
+    "spritesheets": [
+        "spritesheets.xml"
+    ],
+    "screenResolution": {
+        "w": 320,
+        "h": 200
+    },
+    "externalCode": [],
+    "dependencies": {
+        "keyboard": "1.0",
+        "gamepad": "1.0",
+        "pointBoxCollision2D": "1.0"
+    },
+    "capabilities": [
+        "ClockworkRuntime"
+    ],
+    "themeColor": "#4B5",
+    "backgroundColor": "#000",
+    "tileIcon": "tileIcon.png",
+    "enginefps": 60,
+    "animationfps": 60
+}
