@@ -13,7 +13,7 @@ CLOCKWORKRT.components.push([
         inherits: "bar",
         events: [
             {
-                name: "keyboard_down", code: function (event) {
+                name: "keyboardDown", code: function (event) {
                     if (event.key == 38) {
                         this.var.$y -= 10;
                     }
