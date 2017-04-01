@@ -1,4 +1,4 @@
-CLOCKWORKRT.components.push([
+CLOCKWORKRT.components.register([
     {
         name: "paddle",
         sprite: "paddle", //Use the paddle spritesheet contained in spritesheets.xml
