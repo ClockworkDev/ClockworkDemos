@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<levels>
+  <level id="mainLevel">
+    <object name="cursorCamera" type="cursorCamera" x="0" y="0" z="0"></object>
+    <object name="sky" type="sky" x="0" y="0" z="0"></object>
+    <object name="floor" type="floor" x="0" y="0" z="0"></object>
+    <object name="platform1" type="redPlatform" x="0" y="0" z="400"></object>
+    <object name="platform2" type="greenPlatform" x="348" y="0" z="-200"></object>
+    <object name="platform3" type="bluePlatform" x="-348" y="0" z="-200"></object>
+  </level>
+</levels>

@@ -7,9 +7,9 @@
         {
             "type": "clockwork",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "Debug game",
             "program": "${workspaceRoot}/manifest.json",
-            "stopOnEntry": false
+            "levelEditorEnabled": false
         }
     ]
 }
