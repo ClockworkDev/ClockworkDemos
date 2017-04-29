@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<spritesheets>
+  <spritesheet name="playerShip" src="images/spaceships.png">
+    <states>
+      <state name="Idle">
+        <layer name="Idle"></layer>
+      </state>
+    </states>
+    <layers>
+      <layer name="Idle" x="0" y="0">
+        <frame name="Idle"></frame>
+      </layer>
+    </layers>
+    <frames>
+      <frame name="Idle" x="0" y="0" w="100" h="100" t="100"></frame>
+    </frames>
+  </spritesheet>
+    <spritesheet name="livesIndicator" src="images/spaceships.png">
+    <states>
+      <state name="3lives">
+        <layer name="live1"></layer>
+        <layer name="live2"></layer>
+        <layer name="live3"></layer>
+      </state>
+      <state name="2lives">
+        <layer name="live1"></layer>
+        <layer name="live2"></layer>
+      </state>
+      <state name="1lives">
+        <layer name="live1"></layer>
+      </state>
+    </states>
+    <layers>
+      <layer name="live1" x="0" y="0">
+        <frame name="ship"></frame>
+      </layer>
+      <layer name="live2" x="-100" y="0">
+        <frame name="ship"></frame>
+      </layer>
+      <layer name="live3" x="-200" y="0">
+        <frame name="ship"></frame>
+      </layer>
+    </layers>
+    <frames>
+      <frame name="ship" x="0" y="0" w="100" h="100" t="100"></frame>
+    </frames>
+  </spritesheet>
+    <spritesheet name="cannonShip" src="images/spaceships.png">
+    <states>
+      <state name="Idle">
+        <layer name="Idle"></layer>
+      </state>
+    </states>
+    <layers>
+      <layer name="Idle" x="0" y="0">
+        <frame name="Idle"></frame>
+      </layer>
+    </layers>
+    <frames>
+      <frame name="Idle" x="200" y="0" w="100" h="100" t="100"></frame>
+    </frames>
+  </spritesheet>
+  <spritesheet name="triangleShip" src="images/spaceships.png">
+    <states>
+      <state name="Idle">
+        <layer name="Idle"></layer>
+      </state>
+    </states>
+    <layers>
+      <layer name="Idle" x="0" y="0">
+        <frame name="Idle"></frame>
+      </layer>
+    </layers>
+    <frames>
+      <frame name="Idle" x="300" y="0" w="100" h="100" t="100"></frame>
+    </frames>
+  </spritesheet>
+    <spritesheet name="kamikazeShip" src="images/spaceships.png">
+    <states>
+      <state name="Health3">
+        <layer name="Health3"></layer>
+      </state>
+      <state name="Health2">
+        <layer name="Health2"></layer>
+      </state>
+      <state name="Health1">
+        <layer name="Health1"></layer>
+      </state>
+    </states>
+    <layers>
+      <layer name="Health3" x="0" y="0">
+        <frame name="Health3"></frame>
+      </layer>
+      <layer name="Health2" x="0" y="0">
+        <frame name="Health2"></frame>
+      </layer>
+      <layer name="Health1" x="Math.random()+4-2" y="Math.random()+4-2">
+        <frame name="Health1"></frame>
+      </layer>
+    </layers>
+    <frames>
+      <frame name="Health3" x="100" y="0" w="100" h="100" t="100"></frame>
+      <frame name="Health2" x="100" y="100" w="100" h="100" t="100"></frame>
+      <frame name="Health1" x="100" y="200" w="100" h="100" t="100"></frame>
+    </frames>
+  </spritesheet>
+  <spritesheet name="playerFire" src="images/spaceships.png">
+    <states>
+      <state name="Idle">
+        <layer name="Idle"></layer>
+      </state>
+    </states>
+    <layers>
+      <layer name="Idle" x="-50" y="-30">
+        <frame name="Idle1"></frame>
+        <frame name="Idle2"></frame>
+        <frame name="Idle1"></frame>
+        <frame name="Idle3"></frame>
+      </layer>
+    </layers>
+    <frames>
+      <frame name="Idle1" x="400" y="0" w="100" h="100" t="50"></frame>
+      <frame name="Idle2" x="400" y="100" w="100" h="100" t="50"></frame>
+      <frame name="Idle3" x="400" y="200" w="100" h="100" t="50"></frame>
+    </frames>
+  </spritesheet>
+   <spritesheet name="waveFire" src="images/spaceships.png">
+    <states>
+      <state name="Idle">
+        <layer name="Wave1"></layer>
+        <layer name="Wave2"></layer>
+        <layer name="Wave3"></layer>
+      </state>
+    </states>
+    <layers>
+      <layer name="Wave1" x="0" y="-(t%1000)/100">
+        <frame name="Idle1"></frame>
+        <frame name="Idle2"></frame>
+      </layer>
+      <layer name="Wave2" x="0" y="-(t%200)/5">
+        <frame name="Idle2"></frame>
+        <frame name="Idle3"></frame>
+      </layer>
+       <layer name="Wave3" x="0" y="-(1000-(t%1000))/90">
+        <frame name="Idle3"></frame>
+        <frame name="Idle1"></frame>
+        <frame name="Idle2"></frame>
+      </layer>
+    </layers>
+    <frames>
+      <frame name="Idle1" x="500" y="0" w="100" h="100" t="100"></frame>
+      <frame name="Idle2" x="500" y="100" w="100" h="100" t="100"></frame>
+      <frame name="Idle3" x="500" y="200" w="100" h="100" t="100"></frame>
+    </frames>
+  </spritesheet>
+     <spritesheet name="plasmaFire" src="images/spaceships.png">
+    <states>
+      <state name="Idle">
+        <layer name="Idle"></layer>
+      </state>
+    </states>
+    <layers>
+      <layer name="Idle" x="-50" y="-50">
+        <frame name="Idle1"></frame>
+        <frame name="Idle2"></frame>
+        <frame name="Idle1"></frame>
+        <frame name="Idle3"></frame>
+      </layer>
+    </layers>
+    <frames>
+      <frame name="Idle1" x="600" y="0" w="100" h="100" t="50"></frame>
+      <frame name="Idle2" x="600" y="100" w="100" h="100" t="50"></frame>
+      <frame name="Idle3" x="600" y="200" w="100" h="100" t="50"></frame>
+    </frames>
+  </spritesheet>
+  <spritesheet name="score">
+    <states>
+      <state name="score">
+        <layer name="score"></layer>
+      </state>
+    </states>
+    <layers>
+      <layer name="score" x="0" y="0">
+        <frame name="score"></frame>
+      </layer>
+    </layers>
+    <frames>
+      <frame name="score" code="context.font='70px Verdana';context.fillStyle='white';context.fillText(vars['$score'],x,y);"></frame>
+    </frames>
+  </spritesheet>
+    <spritesheet name="explosion" src="images/spaceships.png">
+    <states>
+      <state name="explosion">
+        <layer name="explosion1"></layer>
+        <layer name="explosion2"></layer>
+        <layer name="explosion3"></layer>
+      </state>
+    </states>
+    <layers>
+      <layer name="explosion1" x="-20" y="-5">
+        <frame name="explosion"></frame>
+        <frame name="empty"></frame>
+        <frame name="empty"></frame>
+      </layer>
+      <layer name="explosion2" x="5" y="0">
+        <frame name="empty"></frame>
+        <frame name="explosion"></frame>
+        <frame name="empty"></frame>
+      </layer>
+      <layer name="explosion3" x="0" y="15">
+        <frame name="empty"></frame>
+        <frame name="empty"></frame>
+        <frame name="explosion"></frame>
+      </layer>
+    </layers>
+    <frames>
+      <frame name="empty" x="0" y="200" w="100" h="100" t="100"></frame>
+      <frame name="explosion" x="0" y="300" w="100" h="100" t="100"></frame>
+    </frames>
+  </spritesheet>
+</spritesheets>

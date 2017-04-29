@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<levels>
+  <level id="mainLevel">
+    <object name="keyboard" type="keyboard" x="0" y="0" ></object>
+    <object name="playerShip" type="playerShip" x="600" y="600" ></object>
+    <object name="enemySpawner" type="enemySpawner" x="0" y="0" ></object>
+    <object name="livesIndicator" type="livesIndicator" x="1200" y="50" ></object>
+    <object name="score" type="score" x="60" y="100" ></object>
+  </level>
+</levels>
