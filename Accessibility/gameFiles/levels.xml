@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<levels>
+  <level id="mainLevel">
+    <object name="background" type="background" x="0" y="0" ></object>
+    <object name="enemy" type="enemy" x="940" y="150" ></object>
+    <object name="player" type="player" x="70" y="70" ></object>
+    <object name="dialog" type="dialog" x="470" y="500" ></object>
+    <object name="keyboard" type="keyboard" x="0" y="0" ></object>
+  </level>
+</levels>

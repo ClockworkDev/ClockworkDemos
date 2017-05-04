@@ -1,0 +1,26 @@
+{
+    "name": "Accessibility",
+    "scope": "gameFiles",
+    "components": [
+        "accessibilityRendering.js",
+        "components.js"
+    ],
+    "levels": [
+        "levels.xml"
+    ],
+    "spritesheets": [
+        "spritesheets.xml"
+    ],
+    "screenResolution": {
+        "w": 1366,
+        "h": 768
+    },
+    "dependencies": {
+        "keyboard": "1.0"
+    },
+    "themeColor": "#4B5",
+    "backgroundColor": "black",
+    "tileIcon": "tileIcon.png",
+    "enginefps": 60,
+    "animationfps": 60
+}

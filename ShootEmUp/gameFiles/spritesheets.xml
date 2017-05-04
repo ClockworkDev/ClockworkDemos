@@ -91,10 +91,10 @@
       <layer name="Health3" x="0" y="0">
         <frame name="Health3"></frame>
       </layer>
-      <layer name="Health2" x="0" y="0">
+      <layer name="Health2" x="Math.random()*8-4" y="Math.random()*8-4">
         <frame name="Health2"></frame>
       </layer>
-      <layer name="Health1" x="Math.random()+4-2" y="Math.random()+4-2">
+      <layer name="Health1" x="Math.random()*16-8" y="Math.random()*16-8">
         <frame name="Health1"></frame>
       </layer>
     </layers>

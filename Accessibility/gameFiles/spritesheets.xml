@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<spritesheets>
+  <spritesheet name="background" src="images/battle.png">
+    <states>
+      <state name="idle">
+        <layer name="sky"></layer>
+        <layer name="clouds1"></layer>
+        <layer name="clouds2"></layer>
+        <layer name="ground"></layer>
+      </state>
+      <state name="idle-highContrast"></state>
+    </states>
+    <layers>
+      <layer name="sky" x="0" y="0">
+        <frame name="sky"></frame>
+      </layer>
+      <layer name="clouds1" x="(t/100)%1366" y="0">
+        <frame name="clouds"></frame>
+      </layer>
+      <layer name="clouds2" x="-1366+(t/100)%1366" y="0">
+        <frame name="clouds"></frame>
+      </layer>
+      <layer name="ground" x="0" y="0">
+        <frame name="ground"></frame>
+      </layer>
+    </layers>
+    <frames>
+      <frame name="sky" x="0" y="0" w="1366" h="768" t="0"></frame>
+      <frame name="clouds" x="1366" y="0" w="1366" h="768" t="0"></frame>
+      <frame name="ground" x="0" y="768" w="1366" h="768" t="0"></frame>
+    </frames>
+  </spritesheet>
+  <spritesheet name="enemy" src="images/battle.png">
+    <states>
+      <state name="idle">
+        <layer name="idle"></layer>
+        <layer name="health"></layer>
+      </state>
+      <state name="attack">
+        <layer name="attack"></layer>
+        <layer name="health"></layer>
+      </state>
+      <state name="damaged">
+        <layer name="damaged"></layer>
+        <layer name="health"></layer>
+      </state>
+      <state name="idle-highContrast">
+        <layer name="idle-highContrast"></layer>
+        <layer name="health-highContrast"></layer>
+      </state>
+      <state name="attack-highContrast">
+        <layer name="attack-highContrast"></layer>
+        <layer name="health-highContrast"></layer>
+      </state>
+      <state name="damaged-highContrast">
+        <layer name="damaged-highContrast"></layer>
+        <layer name="health-highContrast"></layer>
+      </state>
+    </states>
+    <layers>
+      <layer name="idle" x="0" y="0">
+        <frame name="idle"></frame>
+      </layer>
+      <layer name="attack" x="-Math.pow(500-Math.abs(500-t),2)/5000" y="0">
+        <frame name="idle"></frame>
+      </layer>
+      <layer name="health" x="100" y="0">
+        <frame name="health"></frame>
+      </layer>
+      <layer name="damaged" x="Math.random()*50-25" y="Math.random()*50-25">
+        <frame name="idle"></frame>
+      </layer>
+      <layer name="idle-highContrast" x="0" y="0">
+        <frame name="idle-highContrast"></frame>
+      </layer>
+      <layer name="attack-highContrast" x="-Math.pow(500-Math.abs(500-t),2)/5000" y="0">
+        <frame name="idle-highContrast"></frame>
+      </layer>
+      <layer name="health-highContrast" x="100" y="0">
+        <frame name="health-highContrast"></frame>
+      </layer>
+      <layer name="damaged-highContrast" x="Math.random()*50-25" y="Math.random()*50-25">
+        <frame name="idle-highContrast"></frame>
+      </layer>
+    </layers>
+    <frames>
+      <frame name="idle" x="1400" y="790" w="300" h="300" t="500"></frame>
+      <frame name="idle-highContrast" x="1400" y="1095" w="300" h="300" t="500"></frame>
+      <frame name="health" code="context.fillStyle='black';context.fillRect(x,y,100,3);context.fillStyle='red';context.fillRect(x,y,vars.$health,3);" t="0"></frame>
+      <frame name="health-highContrast" code="context.fillStyle='black';context.fillRect(x,y,100,20);context.strokeStyle='white';context.strokeRect(x,y,100,20);context.fillStyle='red';context.fillRect(x,y,vars.$health,20);" t="0"></frame>
+    </frames>
+  </spritesheet>
+  <spritesheet name="player" src="images/battle.png">
+    <states>
+      <state name="idle">
+        <layer name="idle"></layer>
+        <layer name="health"></layer>
+      </state>
+      <state name="attack">
+        <layer name="attack"></layer>
+        <layer name="health"></layer>
+      </state>
+      <state name="damaged">
+        <layer name="damaged"></layer>
+        <layer name="health"></layer>
+      </state>
+      <state name="idle-highContrast">
+        <layer name="idle-highContrast"></layer>
+        <layer name="health-highContrast"></layer>
+      </state>
+      <state name="attack-highContrast">
+        <layer name="attack-highContrast"></layer>
+        <layer name="health-highContrast"></layer>
+      </state>
+      <state name="damaged-highContrast">
+        <layer name="damaged-highContrast"></layer>
+        <layer name="health-highContrast"></layer>
+      </state>
+    </states>
+    <layers>
+      <layer name="idle" x="0" y="0">
+        <frame name="idle"></frame>
+      </layer>
+      <layer name="attack" x="Math.pow(500-Math.abs(500-t),2)/2500" y="-Math.pow(500-Math.abs(500-t),2)/5000">
+        <frame name="idle"></frame>
+      </layer>
+      <layer name="damaged" x="Math.random()*50-25" y="Math.random()*50-25">
+        <frame name="idle"></frame>
+      </layer>
+      <layer name="health" x="170" y="-50">
+        <frame name="health"></frame>
+      </layer>
+      <layer name="idle-highContrast" x="0" y="0">
+        <frame name="idle-highContrast"></frame>
+      </layer>
+      <layer name="attack-highContrast" x="-Math.pow(500-Math.abs(500-t),2)/5000" y="0">
+        <frame name="idle-highContrast"></frame>
+      </layer>
+      <layer name="health-highContrast" x="100" y="0">
+        <frame name="health-highContrast"></frame>
+      </layer>
+      <layer name="damaged-highContrast" x="Math.random()*50-25" y="Math.random()*50-25">
+        <frame name="idle-highContrast"></frame>
+      </layer>
+    </layers>
+    <frames>
+      <frame name="idle" x="1700" y="850" w="450" h="600" t="1000"></frame>
+      <frame name="idle-highContrast" x="2125" y="850" w="450" h="600" t="500"></frame>
+      <frame name="health" code="context.fillStyle='black';context.fillRect(x,y,100,3);context.fillStyle='red';context.fillRect(x,y,vars.$health,3);" t="0"></frame>
+      <frame name="health-highContrast" code="context.fillStyle='black';context.fillRect(x,y,100,20);context.strokeStyle='white';context.strokeRect(x,y,100,20);context.fillStyle='red';context.fillRect(x,y,vars.$health,20);" t="0"></frame>
+    </frames>
+  </spritesheet>
+  <spritesheet name="dialog" src="images/battle.png">
+    <states>
+      <state name="text">
+        <layer name="box"></layer>
+        <layer name="text"></layer>
+      </state>
+      <state name="empty"></state>
+      <state name="slider">
+        <layer name="slider"></layer>
+        <layer name="arrow"></layer>
+      </state>
+       <state name="text-highContrast">
+        <layer name="box-highContrast"></layer>
+        <layer name="text-highContrast"></layer>
+      </state>
+      <state name="empty-highContrast"></state>
+      <state name="slider-highContrast">
+        <layer name="slider"></layer>
+        <layer name="arrow"></layer>
+      </state>
+    </states>
+    <layers>
+      <layer name="box" x="t>300 ? 0 : t-300" y="0">
+        <frame name="box"></frame>
+      </layer>
+      <layer name="text" x="t>300 ? 0 : t-300" y="0">
+        <frame name="text"></frame>
+      </layer>
+            <layer name="box-highContrast" x="t>300 ? 0 : t-300" y="0">
+        <frame name="box-highContrast"></frame>
+      </layer>
+      <layer name="text-highContrast" x="t>300 ? 0 : t-300" y="0">
+        <frame name="text-highContrast"></frame>
+      </layer>
+      <layer name="slider" x="0" y="0">
+        <frame name="slider"></frame>
+      </layer>
+      <layer name="arrow" x="20 + 350 + vars.$arrowPosition" y="10">
+        <frame name="arrow"></frame>
+      </layer>
+    </layers>
+    <frames>
+      <frame name="box" x="0" y="1536" w="850" h="210" t="500"></frame>
+      <frame name="slider" x="1850" y="1536" w="850" h="210" t="500"></frame>
+      <frame name="arrow" x="1770" y="1600" w="60" h="150" t="500"></frame>
+      <frame name="box-highContrast" x="918" y="1536" w="850" h="210" t="500"></frame>
+      <frame name="text" code="context.fillStyle='black';context.font='40px Verdana';context.fillText(vars.$text,x+50,y+100);" t="0"></frame>
+      <frame name="text-highContrast" code="context.fillStyle='white';context.font='40px Verdana';context.fillText(vars.$text,x+50,y+100);" t="0"></frame>
+    </frames>
+  </spritesheet>
+</spritesheets>
