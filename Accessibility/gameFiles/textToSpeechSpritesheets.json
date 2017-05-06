@@ -1,0 +1,30 @@
+[
+    {
+        "name": "tts:background",
+        "states": {}
+    },
+    {
+        "name": "tts:enemy",
+        "states": {
+            "damaged": {
+                "text": "The enemy has [$health] health remaining."
+            }
+        }
+    },
+    {
+        "name": "tts:player",
+        "states": {
+            "damaged": {
+                "text": "You have [$health] health remaining."
+            }
+        }
+    },
+    {
+        "name": "tts:dialog",
+        "states": {
+            "text": {
+                "text": "[$text]"
+            }
+        }
+    }
+]

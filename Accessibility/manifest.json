@@ -9,7 +9,8 @@
         "levels.xml"
     ],
     "spritesheets": [
-        "spritesheets.xml"
+        "spritesheets.xml",
+        "textToSpeechSpritesheets.json"
     ],
     "screenResolution": {
         "w": 1366,

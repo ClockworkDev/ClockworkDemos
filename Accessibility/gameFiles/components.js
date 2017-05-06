@@ -23,17 +23,13 @@ CLOCKWORKRT.components.register([
                 name: "enemyTurn", code: function () {
                     var that = this;
                     var damage = Math.round(5 + Math.random() * 10);
-                    this.engine.do.displayText({
-                        text: "Enemy deals " + damage + " damage points", callback: function () {
-                            that.var.$state = "attack";
-                            setTimeout(function () {
-                                that.engine.do.damagePlayer(damage);
-                            }, 500);
-                            setTimeout(function () {
-                                that.var.$state = "idle";
-                                that.engine.do.displaySlider();
-                            }, 1000);
-                        }
+                    this.var.$state = "attack";
+                    this.engine.getAnimationEngine().setEndedCallback(this.spriteholder, function () {
+                        that.var.$state = "idle";
+                        that.engine.do.displayText({
+                            text: "Enemy deals " + damage + " damage points"
+                        });
+                        that.engine.do.damagePlayer(damage);
                     });
                 }
             },
@@ -63,17 +59,15 @@ CLOCKWORKRT.components.register([
             {
                 name: "playerTurn", code: function (damage) {
                     var that = this;
-                    this.engine.do.displayText({
-                        text: "Player deals " + damage + " damage points", callback: function () {
-                            that.var.$state = "attack";
-                            setTimeout(function () {
-                                that.engine.do.damageEnemy(damage);
-                            }, 500);
-                            setTimeout(function () {
-                                that.var.$state = "idle";
+                    this.var.$state = "attack";
+                    this.engine.getAnimationEngine().setEndedCallback(this.spriteholder, function () {
+                        that.var.$state = "idle";
+                        that.engine.do.displayText({
+                            text: "Player deals " + damage + " damage points", callback: function () {
                                 that.engine.do.enemyTurn();
-                            }, 1000);
-                        }
+                            }
+                        });
+                        that.engine.do.damageEnemy(damage);
                     });
                 }
             },
@@ -85,6 +79,9 @@ CLOCKWORKRT.components.register([
                     setTimeout(function () {
                         that.var.$state = "idle";
                     }, 100);
+                    this.engine.getAnimationEngine().setEndedCallback(that.spriteholder, function () {
+                        that.engine.do.displaySlider();
+                    });
                 }
             }
         ]
@@ -96,13 +93,33 @@ CLOCKWORKRT.components.register([
             {
                 name: "#setup", code: function () {
                     this.var.$health = 100;
-                    this.engine.do.displaySlider();
                     this.var.t = 0;
+
+                    var audioCtx = new window.AudioContext();
+                    oscillator = audioCtx.createOscillator(); // Create sound source
+                    oscillator.type = "sine"; // Square wave
+                    oscillator.frequency.value = 440; // frequency in hertz
+                    oscillator.start(0);
+                    this.var.oscillator = oscillator;
+
+                    var panNode = audioCtx.createPanner();
+                    panNode.setPosition(0, 0, 0);
+
+                    this.var.panner = panNode;
+                    this.var.audioCtx = audioCtx;
+
+                    oscillator.connect(panNode);
+
+                    this.engine.do.displaySlider();
                 }
             },
             {
                 name: "#loop", code: function (event) {
                     this.var.$arrowPosition = Math.sin(this.var.t++ / 30) * 350;
+                    if (this.var.textToSpeechEnabled === true) {
+                        this.var.oscillator.frequency.value = 2000 - Math.abs(this.var.$arrowPosition) * 2;
+                        this.var.panner.setPosition(this.var.$arrowPosition / 300, Math.cos(this.var.t / 30), 0);
+                    }
                 }
             },
             {
@@ -114,23 +131,39 @@ CLOCKWORKRT.components.register([
                         this.var.$state = "empty";
                     } else {
                         this.var.$state = "text";
-                        setTimeout(function () {
+                        var dismiss = function () {
                             that.var.$state = "empty";
-                            event.callback()
-                        }, text.length * 100);
+                            if (event.callback) {
+                                event.callback();
+                            }
+                        }
                     }
+                    this.engine.getAnimationEngine().setEndedCallback(this.spriteholder, dismiss);
+                    // setTimeout(dismiss, text.length * 100);
                 }
             },
             {
                 name: "displaySlider", code: function (event) {
                     this.var.$state = "slider";
+                    if (this.var.textToSpeechEnabled === true) {
+                        this.var.panner.connect(this.var.audioCtx.destination);
+                    }
                 }
             },
             {
                 name: "keyboardDown", code: function (event) {
-                    if (this.var.$state === "slider") {
-                        this.var.$state = "empty";
-                        this.engine.do.playerTurn(15 - Math.abs(Math.round((this.var.$arrowPosition / 35))));
+                    if (event.key == 32) {
+                        if (this.var.$state === "slider") {
+                            this.var.panner.disconnect();
+                            this.var.$state = "empty";
+                            this.engine.do.playerTurn(15 - Math.abs(Math.round((this.var.$arrowPosition / 35))));
+                        }
+                    } else if (event.key == 70) {
+                        this.engine.getAnimationEngine().sendCommand("enableTextToSpeech");
+                        this.var.textToSpeechEnabled = true;
+                        if (this.var.$state == "slider") {
+                            this.var.panner.connect(this.var.audioCtx.destination);
+                        }
                     }
                 }
             }
