@@ -1,0 +1,27 @@
+{
+    "name": "CardGame",
+    "scope": "gameFiles",
+    "components": [
+        "components.js",
+        "deck.js"
+    ],
+    "levels": [
+        "levels.xml"
+    ],
+    "spritesheets": [
+        "spritesheets.xml"
+    ],
+    "screenResolution": {
+        "w": 1920,
+        "h": 1080
+    },
+    "dependencies": {
+        "pointBoxCollision2D": "1.0",
+        "mouse": "1.0"
+    },
+    "themeColor": "#4B5",
+    "backgroundColor": "#000",
+    "tileIcon": "tileIcon.png",
+    "enginefps": 60,
+    "animationfps": 60
+}
