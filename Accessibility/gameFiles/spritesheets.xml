@@ -86,8 +86,8 @@
     <frames>
       <frame name="idle" x="1400" y="790" w="300" h="300" t="500"></frame>
       <frame name="idle-highContrast" x="1400" y="1095" w="300" h="300" t="500"></frame>
-      <frame name="health" code="context.fillStyle='black';context.fillRect(x,y,100,3);context.fillStyle='red';context.fillRect(x,y,vars.$health,3);" t="0"></frame>
-      <frame name="health-highContrast" code="context.fillStyle='black';context.fillRect(x,y,100,20);context.strokeStyle='white';context.strokeRect(x,y,100,20);context.fillStyle='red';context.fillRect(x,y,vars.$health,20);" t="0"></frame>
+      <frame name="health" code="context.fillStyle='black';context.fillRect(x,y,100,3);context.fillStyle='red';context.fillRect(x,y,vars.$health,3);" t="500"></frame>
+      <frame name="health-highContrast" code="context.fillStyle='black';context.fillRect(x,y,100,20);context.strokeStyle='white';context.strokeRect(x,y,100,20);context.fillStyle='red';context.fillRect(x,y,vars.$health,20);" t="500"></frame>
     </frames>
   </spritesheet>
   <spritesheet name="player" src="images/battle.png">
