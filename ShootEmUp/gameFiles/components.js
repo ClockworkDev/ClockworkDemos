@@ -319,7 +319,7 @@ CLOCKWORKRT.components.register([
                     if (this.var.lives > 0) {
                         this.var.$state = this.var.lives + "lives";
                     } else {
-                        this.engine.loadLevelByID("mainLevel");
+                        this.engine.loadLevel("mainLevel");
                     }
                 }
             }]
