@@ -68,15 +68,15 @@ CLOCKWORKRT.components.register([
             {
                 name: "fire", code: function (event) {
                     if (Math.random() > 0.5) {
-                        this.engine.addObjectLive("somePlayerFire", "playerFire", this.var.$x + 40, this.var.$y, this.var.$z - 1);
+                        this.engine.spawn("somePlayerFire", "playerFire", { $x: this.var.$x + 40, $y: this.var.$y, $z: this.var.$z - 1 });
                     } else {
-                        this.engine.addObjectLive("somePlayerFire", "playerFire", this.var.$x + 70, this.var.$y, this.var.$z - 1);
+                        this.engine.spawn("somePlayerFire", "playerFire", { $x: this.var.$x + 70, $y: this.var.$y, $z: this.var.$z - 1 });
                     }
                 }
             },
             {
                 name: "#collide", code: function (event) {
-                    this.engine.addObjectLive("explosion", "explosion", this.var.$x, this.var.$y, this.var.$z + 1);
+                    this.engine.spawn("explosion", "explosion", { $x: this.var.$x, $y: this.var.$y, $z: this.var.$z + 1 });
                     this.engine.do.playerDamaged();
                 }
             }
@@ -108,24 +108,24 @@ CLOCKWORKRT.components.register([
                         this.var.ax = 1;
                     }
                     if (this.var.$y > 800) {
-                        this.engine.deleteObjectLive(this);
+                        this.engine.destroy(this);
                     }
                 }
             },
             {
                 name: "#collide", code: function (event) {
                     if (event.shape2kind == "player") {
-                        this.engine.deleteObjectLive(this);
-                        this.engine.addObjectLive("explosion", "explosion", this.var.$x, this.var.$y, this.var.$z + 1);
+                        this.engine.destroy(this);
+                        this.engine.spawn("explosion", "explosion", { $x: this.var.$x, $y: this.var.$y, $z: this.var.$z + 1 });
                     }
                     if (event.shape2kind == "playerFire") {
-                        this.engine.addObjectLive("explosion", "explosion", this.var.$x, this.var.$y, this.var.$z + 1);
+                        this.engine.spawn("explosion", "explosion", { $x: this.var.$x, $y: this.var.$y, $z: this.var.$z + 1 });
                         this.engine.do.scorePoints(100);
                         this.var.health--;
                         if (this.var.health > 0) {
                             this.var.$state = "Health" + this.var.health;
                         } else {
-                            this.engine.deleteObjectLive(this);
+                            this.engine.destroy(this);
                         }
                     }
                 }
@@ -161,14 +161,14 @@ CLOCKWORKRT.components.register([
             },
             {
                 name: "fire", code: function (event) {
-                    this.engine.addObjectLive("someWaveFire", "waveFire", this.var.$x, this.var.$y + 100, this.var.$z - 1);
+                    this.engine.spawn("someWaveFire", "waveFire", { $x: this.var.$x, $y: this.var.$y + 100, $z: this.var.$z - 1 });
                 }
             },
             {
                 name: "#collide", code: function (event) {
-                    this.engine.addObjectLive("explosion", "explosion", this.var.$x, this.var.$y, this.var.$z + 1);
+                    this.engine.spawn("explosion", "explosion", { $x: this.var.$x, $y: this.var.$y, $z: this.var.$z + 1 });
                     this.engine.do.scorePoints(200);
-                    this.engine.deleteObjectLive(this);
+                    this.engine.destroy(this);
                 }
             }
         ],
@@ -199,17 +199,17 @@ CLOCKWORKRT.components.register([
             },
             {
                 name: "fire", code: function (event) {
-                    var plasma1 = this.engine.addObjectLive("someWaveFire", "plasmaFire", this.var.$x + 20, this.var.$y + 100, this.var.$z - 1);
+                    var plasma1 = this.engine.spawn("someWaveFire", "plasmaFire", { $x: this.var.$x + 20, $y: this.var.$y + 100, $z: this.var.$z - 1 });
                     plasma1.var.vx = -1;
-                    var plasma2 = this.engine.addObjectLive("someWaveFire", "plasmaFire", this.var.$x + 80, this.var.$y + 100, this.var.$z - 1);
+                    var plasma2 = this.engine.spawn("someWaveFire", "plasmaFire", { $x: this.var.$x + 80, $y: this.var.$y + 100, $z: this.var.$z - 1 });
                     plasma2.var.vx = 1;
                 }
             },
             {
                 name: "#collide", code: function (event) {
-                    this.engine.addObjectLive("explosion", "explosion", this.var.$x, this.var.$y, this.var.$z + 1);
+                    this.engine.spawn("explosion", "explosion", this.var.$x, this.var.$y, this.var.$z + 1);
                     this.engine.do.scorePoints(300);
-                    this.engine.deleteObjectLive(this);
+                    this.engine.destroy(this);
                 }
             }
         ],
@@ -242,13 +242,13 @@ CLOCKWORKRT.components.register([
                 name: "#loop", code: function (event) {
                     this.var.$y -= 10;
                     if (this.var.$y < -50) {
-                        this.engine.deleteObjectLive(this);
+                        this.engine.destroy(this);
                     }
                 }
             },
             {
                 name: "#collide", code: function (event) {
-                    this.engine.deleteObjectLive(this);
+                    this.engine.destroy(this);
                 }
             }],
         collision: {
@@ -266,13 +266,13 @@ CLOCKWORKRT.components.register([
                     this.var.$y += 4;
                     this.var.$x += this.var.vx;
                     if (this.var.$y > 800) {
-                        this.engine.deleteObjectLive(this);
+                        this.engine.destroy(this);
                     }
                 }
             },
             {
                 name: "#collide", code: function (event) {
-                    this.engine.deleteObjectLive(this);
+                    this.engine.destroy(this);
                 }
             }],
         collision: {
@@ -289,12 +289,12 @@ CLOCKWORKRT.components.register([
                 name: "#loop", code: function (event) {
                     this.var.$y += 4;
                     if (this.var.$y > 800) {
-                        this.engine.deleteObjectLive(this);
+                        this.engine.destroy(this);
                     }
                 }
             }, {
                 name: "#collide", code: function (event) {
-                    this.engine.deleteObjectLive(this);
+                    this.engine.destroy(this);
                 }
             }],
         collision: {
@@ -365,7 +365,7 @@ CLOCKWORKRT.components.register([
                     this.var.timeline.filter(function (event) {
                         return event.t == that.var.timer;
                     }).forEach(function (event) {
-                        that.engine.addObjectLive("spawnedEnemy", event.enemy, event.x, -100, 0);
+                        that.engine.spawn("spawnedEnemy", event.enemy, { $x: event.x, $y: -100, $z: 0 });
                     });
                     this.var.timer++;
                 }
@@ -401,7 +401,7 @@ CLOCKWORKRT.components.register([
                 name: "#loop", code: function (event) {
                     this.var.timer++;
                     if (this.var.timer == 10) {
-                        this.engine.deleteObjectLive(this);
+                        this.engine.destroy(this);
                     }
                 }
             }

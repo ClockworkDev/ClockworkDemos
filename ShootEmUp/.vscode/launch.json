@@ -10,6 +10,14 @@
             "name": "Debug game",
             "program": "${workspaceRoot}/manifest.json",
             "levelEditorEnabled": false
+        },
+        {
+            "type": "clockwork",
+            "request": "launch",
+            "name": "Debug game remotely",
+            "program": "${workspaceRoot}/manifest.json",
+            "levelEditorEnabled": false,
+            "remoteMachine": "192.168.1.60"
         }
     ]
 }
